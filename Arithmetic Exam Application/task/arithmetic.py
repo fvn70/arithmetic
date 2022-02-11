@@ -29,9 +29,18 @@ def gen_task():
     return t
 
 
-task = gen_task()
-answer = int(input())
-if answer == calc(task):
-    print("Right!")
-else:
-    print("Wrong!")
+cnt = 0
+for k in range(5):
+    task = gen_task()
+    while True:
+        try:
+            answer = int(input())
+            if answer == calc(task):
+                print("Right!")
+                cnt += 1
+            else:
+                print("Wrong!")
+            break
+        except ValueError:
+            print("Incorrect format.")
+print(f"Your mark is {cnt}/5.")
