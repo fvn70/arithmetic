@@ -1,3 +1,7 @@
+# Stage 2
+from random import randint, choice
+
+
 def calc(s):
     cmd = s.split()
     if len(cmd) == 3:
@@ -14,4 +18,20 @@ def calc(s):
         res = a * a
     return res
 
-print(calc(input()))
+
+def gen_task():
+    ops = "+-*"
+    a = randint(2, 9)
+    b = randint(2, 9)
+    op = choice(ops)
+    t = f"{a} {op} {b}"
+    print(t)
+    return t
+
+
+task = gen_task()
+answer = int(input())
+if answer == calc(task):
+    print("Right!")
+else:
+    print("Wrong!")
